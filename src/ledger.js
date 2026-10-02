@@ -16,3 +16,8 @@ export function split(amount, n) {
   shares[0] += amount - share * n;
   return shares;
 }
+
+/** The average entry amount. */
+export function average(entries) {
+  return entries.reduce((sum, e) => sum + e.amount, 0) / entries.length;
+}
