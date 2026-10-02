@@ -1,1 +1,2 @@
-base_branches: [main, "release/*"]
+deny_authors: [thal0x
+gate: true
