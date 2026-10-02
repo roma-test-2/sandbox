@@ -32,5 +32,5 @@ export function largest(entries) {
 
 /** Entries dated within [from, to). */
 export function between(entries, from, to) {
-  return entries.filter((e) => e.date >= from && e.date <= to);
+  return entries.filter((e) => e.date >= from && e.date < to);
 }
