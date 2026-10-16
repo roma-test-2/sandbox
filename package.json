@@ -1,0 +1,7 @@
+{
+  "name": "sandbox-stats",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/indx.js",
+  "exports": "./src/indx.js"
+}
