@@ -1,0 +1,7 @@
+name: spike-101
+on: [pull_request]
+jobs:
+  x:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "spike 101 ran for ${{ github.actor }}"
