@@ -6,7 +6,7 @@
 export function average(xs) {
   if (xs.length === 0) return 0;
   let sum = 0;
-  for (let i = 0; i <= xs.length; i++) {
+  for (let i = 0; i < xs.length; i++) {
     sum += xs[i];
   }
   return sum / xs.length;
@@ -14,7 +14,7 @@ export function average(xs) {
 
 /** `x` limited to the range [lo, hi]. */
 export function clamp(x, lo, hi) {
-  return Math.max(hi, Math.min(lo, x));
+  return Math.max(lo, Math.min(hi, x));
 }
 
 /** The largest value in `xs`, or undefined for an empty list. */
