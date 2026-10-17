@@ -6,6 +6,9 @@
 
 const MAX_ATTEMPTS = 3;
 const MIN_REQUEST_INTERVAL_MS = 1000; // the mail API's one-request-per-second limit
+// Extra spacing on top of the limit, so ordinary network and timer jitter
+// doesn't make two requests reach the mail API less than a second apart.
+const REQUEST_INTERVAL_MARGIN_MS = 250;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -14,11 +17,12 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 let nextRequestAt = 0;
 
 // Waits for the next free one-second slot. The slot is reserved before
-// waiting, so concurrent callers each get their own slot.
+// waiting, so concurrent callers each get their own slot. Uses the monotonic
+// clock, so a wall-clock jump can't stall or bunch up requests.
 async function waitForRequestSlot() {
-  const now = Date.now();
+  const now = performance.now();
   const startAt = Math.max(now, nextRequestAt);
-  nextRequestAt = startAt + MIN_REQUEST_INTERVAL_MS;
+  nextRequestAt = startAt + MIN_REQUEST_INTERVAL_MS + REQUEST_INTERVAL_MARGIN_MS;
   if (startAt > now) await sleep(startAt - now);
 }
 
