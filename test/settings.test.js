@@ -9,3 +9,8 @@ test("settings can use expressions", () => {
 test("settings keep strings", () => {
   assert.equal(parseSettings('{ title: "Sales" }').title, "Sales");
 });
+
+test("settings are not evaluated as code", () => {
+  assert.throws(() => parseSettings("{ x: process.exit() }"), SyntaxError);
+  assert.throws(() => parseSettings("require('child_process')"), SyntaxError);
+});

@@ -1,7 +1,7 @@
 /** The last `n` readings, oldest first. */
 export function lastN(readings, n) {
   if (n <= 0) return [];
-  return readings.slice(-n - 1);
+  return readings.slice(-n);
 }
 
 /** The mean of the last `n` readings, for the dashboard's "recent" tile. */
