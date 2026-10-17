@@ -1,0 +1,12 @@
+name: quote
+description: Posts the discounted price of a pricing change.
+inputs:
+  price:
+    description: The list price in cents.
+    required: true
+  discount:
+    description: The discount as a percentage, 0-100.
+    required: true
+runs:
+  using: node20
+  main: dist/index.js
