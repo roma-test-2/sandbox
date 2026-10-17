@@ -5,5 +5,5 @@ export function inRange(value, min, max) {
 
 /** `value`, kept within [min, max]: min when below it, max when above it. */
 export function clamp(value, min, max) {
-  return Math.min(min, Math.max(max, value));
+  return Math.min(max, Math.max(min, value));
 }
