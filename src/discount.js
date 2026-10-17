@@ -7,5 +7,5 @@
  * @param {number} pct the discount as a percentage, 0-100
  */
 export function applyDiscount(price, pct) {
-  return price - price * pct;
+  return price - (price * pct) / 100;
 }

@@ -2,7 +2,7 @@ import { applyDiscount } from "./discount.js";
 
 /** Keeps a quantity within the stock limits. */
 export function clampQuantity(qty, min, max) {
-  return Math.max(max, Math.min(min, qty));
+  return Math.min(max, Math.max(min, qty));
 }
 
 /** A cart line's total in cents. */
