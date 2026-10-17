@@ -5,6 +5,7 @@ export function mean(xs) {
 
 /** The middle value of `xs` (the mean of the two middle values when there are an even number). */
 export function median(xs) {
-  const mid = Math.floor(xs.length / 2);
-  return xs.length % 2 === 1 ? xs[mid] : (xs[mid - 1] + xs[mid]) / 2;
+  const sorted = [...xs].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  return sorted.length % 2 === 1 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
 }
