@@ -1,6 +1,6 @@
 /// The last `n` items of `items` (all of them when there are fewer than `n`).
 pub fn last_n<T: Clone>(items: &[T], n: usize) -> Vec<T> {
-    items[items.len() - n..].to_vec()
+    items[items.len().saturating_sub(n)..].to_vec()
 }
 
 #[cfg(test)]
