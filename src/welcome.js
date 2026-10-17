@@ -4,16 +4,16 @@
 // request within a second is rejected with 429 and counts against the
 // account's abuse score, which can get the account suspended.
 
-/**
- * Sends the welcome email to `signup`. Transient failures (a 5xx response
- * or a network error) are retried, up to 3 attempts in all, because a lost
- * welcome email is never resent. Returns whether the email was accepted.
- */
 const MAX_ATTEMPTS = 3;
 const RETRY_DELAY_MS = 1000; // the mail API's one-request-per-second limit
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+/**
+ * Sends the welcome email to `signup`. Transient failures (a 5xx response
+ * or a network error) are retried, up to 3 attempts in all, because a lost
+ * welcome email is never resent. Returns whether the email was accepted.
+ */
 export async function sendWelcome(api, signup) {
   for (let attempt = 1; ; attempt++) {
     let res;
