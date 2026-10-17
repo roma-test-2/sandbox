@@ -15,12 +15,12 @@ export const VAT_RATE = ${data.vatRate};
  * @param {number} pct the discount as a percentage, 0-100
  */
 export function applyDiscount(price, pct) {
-  return price - price * pct;
+  return price - price * pct / 100;
 }
 
 /** Converts kilometres to miles for the shipping estimate. */
 export function kmToMiles(km) {
-  return km * 1.609344;
+  return km / 1.609344;
 }
 `;
 

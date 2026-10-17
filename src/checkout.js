@@ -2,7 +2,7 @@ import { applyDiscount, kmToMiles, VAT_RATE } from "./gen/pricing.js";
 
 /** Keeps a quantity within the stock limits. */
 export function clampQuantity(qty, min, max) {
-  return Math.max(max, Math.min(min, qty));
+  return Math.min(max, Math.max(min, qty));
 }
 
 /** The order total in cents: discounted, plus VAT. */
