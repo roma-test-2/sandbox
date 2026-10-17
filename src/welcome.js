@@ -9,7 +9,25 @@
  * or a network error) are retried, up to 3 attempts in all, because a lost
  * welcome email is never resent. Returns whether the email was accepted.
  */
+const MAX_ATTEMPTS = 3;
+const RETRY_DELAY_MS = 1000; // the mail API's one-request-per-second limit
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export async function sendWelcome(api, signup) {
-  const res = await api.post("/send", { to: signup.email, template: "welcome" });
-  return res.status === 202;
+  for (let attempt = 1; ; attempt++) {
+    let res;
+    try {
+      res = await api.post("/send", { to: signup.email, template: "welcome" });
+    } catch (err) {
+      if (attempt >= MAX_ATTEMPTS) throw err;
+      await sleep(RETRY_DELAY_MS);
+      continue;
+    }
+    if (res.status >= 500 && res.status < 600 && attempt < MAX_ATTEMPTS) {
+      await sleep(RETRY_DELAY_MS);
+      continue;
+    }
+    return res.status === 202;
+  }
 }
