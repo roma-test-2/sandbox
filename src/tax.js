@@ -4,5 +4,5 @@
  * @param {number} rate the VAT rate as a fraction, e.g. 0.2
  */
 export function addVat(cents, rate) {
-  return Math.round(cents * rate);
+  return Math.round(cents * (1 + rate));
 }
