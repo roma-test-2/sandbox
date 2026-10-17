@@ -6,7 +6,7 @@ import { postPath } from "../src/slug.js";
 
 // The archive's post paths, pinned, so a change to them is always deliberate. When a
 // change is intended, set ARCHIVE_DIGEST to the new digest this test prints.
-const ARCHIVE_DIGEST = "38e6f9fb8e7930209f21dacc8f5c7eb9f403c4cf2a99021b3608f8fb551ea25a";
+const ARCHIVE_DIGEST = "47d569f65dbbae0e5a5039ce119da2d5c20d8333c12d221f8925bddb9779a954";
 
 const titles = readFileSync(new URL("./fixtures/titles.txt", import.meta.url), "utf8").trim().split("\n");
 const paths = titles.map(postPath);

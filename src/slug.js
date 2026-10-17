@@ -1,6 +1,11 @@
 /** A post title as the last segment of its URL: `Hello World` → `hello-world`. */
 export function slugify(title) {
-  return title.trim().toLowerCase().replace(/\s+/g, "-");
+  return title
+    .trim()
+    .toLowerCase()
+    .replace(/[^\p{L}\p{M}\p{N}\s-]+/gu, "")
+    .trim()
+    .replace(/\s+/g, "-");
 }
 
 /** The path of a post. */
