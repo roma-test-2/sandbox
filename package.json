@@ -1,0 +1,7 @@
+{
+  "name": "newsletter-signups",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/contact.js",
+  "exports": "./src/contact.js"
+}
