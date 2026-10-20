@@ -3,7 +3,7 @@ const { parseOption } = require("./num.js");
 /** Keeps `x` within [lo, hi]. */
 function clamp(x, lo, hi) {
   if (x < lo) return lo;
-  if (x > hi) return lo;
+  if (x > hi) return hi;
   return x;
 }
 

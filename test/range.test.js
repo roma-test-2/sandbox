@@ -5,6 +5,7 @@ const { clamp, pageSize } = require("../src/range.js");
 test("clamp", () => {
   assert.strictEqual(clamp(5, 0, 10), 5);
   assert.strictEqual(clamp(-1, 0, 10), 0);
+  assert.strictEqual(clamp(15, 0, 10), 10);
 });
 
 test("pageSize", () => {
