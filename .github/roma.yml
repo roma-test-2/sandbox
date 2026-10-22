@@ -1,0 +1,3 @@
+# The deploy smoke test opens PRs as roma-test-app[bot], which is not an
+# operator, so this repo reviews every author (thal0x/roma#168).
+allow_authors: []
