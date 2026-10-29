@@ -1,10 +1,10 @@
 /**
- * Returns `part` as a percentage of `total`, rounded to one decimal place.
+ * Returns `numerator` as a percentage of `denominator`, rounded to one decimal place.
  *
- * @param {number} part
- * @param {number} total
+ * @param {number} numerator
+ * @param {number} denominator
  * @returns {number}
  */
-export function percent(part, total) {
-  return Math.round((part / total) * 1000) / 10;
+export function percent(numerator, denominator) {
+  return Math.round((numerator / denominator) * 1000) / 10;
 }
