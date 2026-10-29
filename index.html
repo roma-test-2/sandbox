@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hello</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: "Comic Neue", "Comic Sans MS", "Chalkboard SE", "Trebuchet MS", ui-rounded, system-ui, sans-serif;
+        font-size: clamp(2.5rem, 8vw, 6rem);
+      }
+
+      h1 {
+        margin: 0;
+        padding: 1rem;
+        font-size: inherit;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="greeting"></h1>
+    <script type="module">
+      import { greet } from "./src/greet.js";
+
+      document.getElementById("greeting").textContent = greet("visitor");
+    </script>
+  </body>
+</html>
