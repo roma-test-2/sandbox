@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Welcome</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: env(safe-area-inset-top) env(safe-area-inset-right)
+          env(safe-area-inset-bottom) env(safe-area-inset-left);
+        box-sizing: border-box;
+        background: #111;
+        color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
+      #banner {
+        margin: 0;
+        padding: 0 5vw;
+        font-size: clamp(2.5rem, 14vw, 10rem);
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        text-align: center;
+        overflow-wrap: anywhere;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="banner"></h1>
+    <script src="src/shout.js"></script>
+    <script>
+      document.getElementById("banner").textContent = shout("welcome");
+    </script>
+  </body>
+</html>
