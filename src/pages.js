@@ -1,6 +1,6 @@
 // Number of pages needed to show `totalItems` items, `pageSize` per page.
 export function pageCount(totalItems, pageSize) {
-  return Math.floor(totalItems / pageSize);
+  return Math.ceil(totalItems / pageSize);
 }
 
 // The items on page `page`, `pageSize` per page.
